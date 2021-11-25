@@ -1,0 +1,29 @@
+extends root
+
+block imports
+  link(rel="stylesheet", href="/styles/results.css")
+
+block content
+  main
+    h1 Results
+    #years
+      each array, year in meets
+        .year-section
+          .year-button
+            .year-title= year
+            .year-arrow V
+          .meet-list
+            each meet in array
+              ul.meet
+                li 
+                  - var url = "./results/" + year + "/" + meet.opponent.toLowerCase()
+                  a(href=url)
+                    .meet-title Dover-Sherborn vs. #{meet.opponent}
+                    if meet.girlsHomeScore > meet.girlsOpponentScore
+                      .score-grouping.win Girls: #{meet.girlsHomeScore}-#{meet.girlsOpponentScore} W
+                    else
+                      .score-grouping.loss Girls: #{meet.girlsHomeScore}-#{meet.girlsOpponentScore} L
+                    if meet.boysHomeScore > meet.boysOpponentScore
+                      .score-grouping.win Boys: #{meet.boysHomeScore}-#{meet.boysOpponentScore} W
+                    else
+                      .score-grouping.loss Boys: #{meet.boysHomeScore}-#{meet.boysOpponentScore} L

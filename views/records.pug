@@ -1,0 +1,74 @@
+extends root
+
+block imports
+  link(rel="stylesheet", href="/styles/records.css")
+
+mixin event(event)
+  .time= event.Time
+  .athlete= event.Athlete
+  .date= event.DateText
+
+mixin diving(event)
+  .score= event.Score
+  .athlete= event.Athlete
+  .date= event.DateText
+
+mixin relay(event)
+  .time= event.Time
+  ul.athletes
+    li= event.Athlete1
+    li= event.Athlete2
+    li= event.Athlete3
+    li= event.Athlete4
+  .date= event.DateText
+
+mixin eventGroup(title, girlsObject, boysObject)
+  .event
+    h2= title
+    .eventGroup
+      .record
+        h3 Girls
+        +event(girlsObject)
+      .record
+        h3 Boys
+        +event(boysObject)
+
+mixin relayGroup(title, girlsObject, boysObject)
+  .event
+    h2= title
+    .eventGroup
+      .record
+        h3 Girls
+        +relay(girlsObject)
+      .record
+        h3 Boys
+        +relay(boysObject)
+
+mixin divingGroup(title, girlsObject, boysObject)
+  .event
+    h2= title
+    .eventGroup
+      .record
+        h3 Girls
+        +diving(girlsObject)
+      .record
+        h3 Boys
+        +diving(boysObject)
+
+block content
+  main
+    h1 Records
+    #records
+      +relayGroup("200 Medley Relay", data.Girls200MedleyRelay, data.Boys200MedleyRelay)
+      +eventGroup("200 Free", data.Girls200Free, data.Boys200Free)
+      +eventGroup("200 IM", data.Girls200IM, data.Boys200IM)
+      +eventGroup("50 Free", data.Girls50Free, data.Boys50Free)
+      +divingGroup("Diving (6 Dives)", data.GirlsDiving6, data.BoysDiving6)
+      +divingGroup("Diving (11 Dives)", data.GirlsDiving11, data.BoysDiving11)
+      +eventGroup("100 Fly", data.Girls100Fly, data.Boys100Fly)
+      +eventGroup("100 Free", data.Girls100Free, data.Boys100Free)
+      +eventGroup("500 Free", data.Girls500Free, data.Boys500Free)
+      +relayGroup("200 Free Relay", data.Girls200FreeRelay, data.Boys200FreeRelay)
+      +eventGroup("100 Back", data.Girls100Back, data.Boys100Back)
+      +eventGroup("100 Breast", data.Girls100Breast, data.Boys100Breast)
+      +relayGroup("400 Free Relay", data.Girls400FreeRelay, data.Boys400FreeRelay)

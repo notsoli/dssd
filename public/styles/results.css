@@ -1,0 +1,56 @@
+/* general styling */
+
+h1 {
+  margin-bottom: 40px;
+}
+
+/* year */
+
+.year-section {
+  margin-bottom: 30px;
+}
+
+.year-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.year-title {
+  font-size: 30px;
+  color: var(--accent);
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* .year-arrow {
+  font-weight: bold;
+} */
+
+/* meet */
+
+.meet-list {
+  margin-left: 15px;
+}
+
+.meet {
+  margin-bottom: 10px;
+}
+
+.meet a {
+  text-decoration: none;
+  line-height: 1.5;
+}
+
+.meet-title {
+  font-size: 20px;
+  text-decoration: underline;
+}
+
+.win {
+  color: var(--affirm);
+}
+
+.loss {
+  color: var(--error);
+}

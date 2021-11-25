@@ -1,0 +1,35 @@
+extends root
+
+block imports
+  link(rel="stylesheet", href="/styles/meet.css")
+
+block content
+  main
+    header
+      .year= meet.year
+      .opponent Dover-Sherborn v. #{meet.opponent}
+      .score-grouping
+        .sex F
+        if meet.girlsHomeScore > meet.girlsOpponentScore
+          .score.majority= meet.girlsHomeScore
+          .score= meet.girlsOpponentScore
+        else
+          .score= meet.girlsHomeScore
+          .score.majority= meet.girlsOpponentScore
+      .score-grouping
+        .sex M
+        if meet.boysHomeScore > meet.boysOpponentScore
+          .score.majority= meet.boysHomeScore
+          .score= meet.boysOpponentScore
+        else
+          .score= meet.boysHomeScore
+          .score.majority= meet.boysOpponentScore
+    h2 Girls Results
+    - var girlsURL = "https://drive.google.com/viewerng/viewer?embedded=true&url=http://api.dssd.team" + meet.girlsSpreadsheet.url
+    .object-wrapper
+      embed(src=girlsURL)
+    h2 Boys Results
+    - var boysURL = "https://drive.google.com/viewerng/viewer?embedded=true&url=http://api.dssd.team" + meet.boysSpreadsheet.url
+    .object-wrapper
+      embed(src=boysURL)
+    

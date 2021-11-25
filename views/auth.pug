@@ -1,0 +1,17 @@
+extends root
+
+block imports
+  link(rel="stylesheet", href="/styles/auth.css")
+  script(src="/scripts/auth.js")
+
+block content
+  main
+    #auth-container
+      p 
+        | This page is reserved for swimmers, parents, and coaches only.
+        | If you do not have access to the required password, please contact
+        | a coach to get access.
+      div#errorMessage
+      #auth-form
+        input(id="formPassword" type="password" name="password" placeholder="Password" required)
+        input(id="formSubmit" type="submit" value="Confirm")

@@ -1,0 +1,33 @@
+extends root
+
+block imports
+  link(rel="stylesheet", href="styles/index.css")
+
+block content
+  main
+    header#page-intro(aria-label="Introduction")
+      h1 Dover-Sherborn Swim and Dive
+      h2 Home of the DS Raiders
+    section#page-images(aria-label="Images")
+      - var leftPhotoURL = "http://api.dssd.team" + data.LeftPhoto.url
+      figure
+        img(width="300" height="200" src=leftPhotoURL, alt="Ava Yablonski")
+        figcaption#fig-left= data.LeftCaption
+      - var rightPhotoURL = "http://api.dssd.team" + data.RightPhoto.url
+      figure
+        img(width="300" height="200" src=rightPhotoURL, alt="Coach Eckles")
+        figcaption#fig-right= data.RightCaption
+    nav#page-links(aria-label="Page Links")
+      ul
+        li
+          a#link-start(href="/results")
+            img(widh="50" height="50" src="assets/images/results-icon.png", alt="Timer")
+            p Meet Results
+        li
+          a#link-mid(href="/resources")
+            img(widh="50" height="50" src="assets/images/resources-icon.png", alt="Schedule with pencil")
+            p Team Resources
+        li
+          a#link-end(href="/records")
+            img(widh="50" height="50" src="assets/images/records-icon.png", alt="Schedule with star")
+            p School Records
