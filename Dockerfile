@@ -1,4 +1,15 @@
-# specify the node base image with your desired version node:<version>
+# use node base image
 FROM node:17
-# replace this with your application's default port
+
+# copy package and package-lock
+COPY package.json package.json
+COPY package-lock.json package-lock.json
+
+# install node packages
+RUN npm install
+
+# copy root files
+COPY . .
+
+# expose server port
 EXPOSE 80
