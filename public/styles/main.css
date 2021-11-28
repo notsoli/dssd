@@ -56,7 +56,7 @@ main {
 }
 
 a, p, * {
-  font-family: "Arvo";
+  font-family: "Arvo", "Arial", sans-serif;
   color: var(--dark);
 }
 
