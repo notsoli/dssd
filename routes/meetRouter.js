@@ -16,7 +16,6 @@ router.get('/results/:year/:meet', async ctx => {
 
     // check if response is valid
     const meets = response.data
-    console.log(meets)
     if (meets.length > 1) {
       ctx.throw(400, "Query matched multiple meets.")
     } else if (meets.length == 0) {
