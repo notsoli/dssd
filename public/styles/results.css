@@ -10,12 +10,6 @@ h1 {
   margin-bottom: 30px;
 }
 
-.year-button {
-  display: flex;
-  align-items: center;
-  margin-bottom: 15px;
-}
-
 .year-title {
   font-size: 30px;
   color: var(--accent);
@@ -23,9 +17,14 @@ h1 {
   margin-right: 10px;
 }
 
-/* .year-arrow {
-  font-weight: bold;
-} */
+/* year button */
+
+.year-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+}
 
 /* meet */
 
